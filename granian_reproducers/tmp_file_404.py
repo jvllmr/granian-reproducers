@@ -22,7 +22,7 @@ def create_plain_text_response(content: bytes, filename: str) -> PlainTextRespon
     f.write(content)
     return PlainTextResponse(
         f.name,
-        filename=f"{filename}.xlsx",
+        filename=f"{filename}.txt",
         background=BackgroundTask(lambda: f.close()),
     )
 
@@ -32,4 +32,4 @@ app = FastAPI()
 
 @app.get("/")
 async def fetch_text_file():
-    return create_plain_text_response(b"Hello from test app!", "test.txt")
+    return create_plain_text_response(b"Hello from test app!", "test")
