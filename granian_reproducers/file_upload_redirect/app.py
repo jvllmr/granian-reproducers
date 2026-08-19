@@ -5,7 +5,7 @@ from fastapi import FastAPI, UploadFile, File, APIRouter
 from typing import Annotated
 
 FILESIZE = 250 * 1024  # 250 KiB
-FILE = Path("granian_reproducers/infinite_upload/test.txt")
+FILE = Path("granian_reproducers/file_upload_redirect/test.txt")
 
 
 if not FILE.exists():
@@ -20,7 +20,7 @@ upload_router = APIRouter(prefix="/upload")
 
 @app.get("/")
 async def get_form():
-    return FileResponse("granian_reproducers/infinite_upload/index.html")
+    return FileResponse("granian_reproducers/file_upload_redirect/index.html")
 
 
 @upload_router.post("/")
